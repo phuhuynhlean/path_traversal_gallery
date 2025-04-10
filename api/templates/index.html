@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery CTF Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        ul li code {
+            background-color: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .hint {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 1rem;
+        }
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gallery CTF Challenge</h1>
+    </header>
+    <main>
+        <p>Welcome to the gallery! Use the API below to explore:</p>
+        <ul>
+            <li><strong>List images:</strong> <code>/list-images</code></li>
+            <li><strong>Load an image:</strong> <code>/get-image?file=</code></li>
+        </ul>
+        <p class="hint">Hint: Can you access files outside the gallery directory?</p>
+        <h1>Our Images</h1>
+        <div class="gallery">
+            <img src="/get-image?file=picture1.png" alt="Picture 1">
+            <img src="/get-image?file=picture2.png" alt="Picture 2">
+            <img src="/get-image?file=picture3.png" alt="Picture 3">
+        </div>
+    </main>
+</body>
+</html>
