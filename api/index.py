@@ -4,7 +4,8 @@ import os
 app = Flask(__name__)
 
 # Directory where images are stored
-IMAGE_DIR = "./images"
+WORKING_DIR = os.path.dirname(os.path.abspath(__file__))
+IMAGE_DIR = os.path.join(WORKING_DIR, 'images')
 
 # API to get the image
 @app.route("/get-image", methods=["GET"])
@@ -39,8 +40,17 @@ def list_images():
 # Home route
 @app.route("/")
 def home():
+    # return WORKING_DIR
     return render_template("index.html")
+
+@app.route("/info")
+def info():
+    return jsonify({
+        "cwd": os.getcwd(),
+        "images": IMAGE_DIR
+    })
 
 # Run the Flask application
 if __name__ == "__main__":
+    print(WORKING_DIR)
     app.run(debug=False, port=10001)
